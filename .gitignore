@@ -1,0 +1,17 @@
+*.log
+~*
+*.tmp
+tmp
+*.txt
+dist
+*.test
+*.prof
+*.conf
+*.json
+*.db
+*.sqlite
+*.sqlite3
+**/.env
+**/bin/**
+*.out
+mcp-kubesearch
