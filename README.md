@@ -7,10 +7,57 @@
 
 <!-- template:begin:header -->
 <!-- do not edit anything in this "template" block, its auto-generated -->
+
+<p align="center">
+  <a href="https://github.com/lrstanley/corpse/tags">
+    <img title="Latest Semver Tag" src="https://img.shields.io/github/v/tag/lrstanley/corpse?style=flat-square">
+  </a>
+  <a href="https://github.com/lrstanley/corpse/commits/master">
+    <img title="Last commit" src="https://img.shields.io/github/last-commit/lrstanley/corpse?style=flat-square">
+  </a>
+
+  <a href="https://github.com/lrstanley/corpse/actions?query=workflow%3Atest+event%3Apush">
+    <img title="GitHub Workflow Status (test @ master)" src="https://img.shields.io/github/actions/workflow/status/lrstanley/corpse/test.yml?branch=master&label=test&style=flat-square">
+  </a>
+
+  <a href="https://codecov.io/gh/lrstanley/corpse">
+    <img title="Code Coverage" src="https://img.shields.io/codecov/c/github/lrstanley/corpse/master?style=flat-square">
+  </a>
+
+  <a href="https://pkg.go.dev/github.com/lrstanley/corpse">
+    <img title="Go Documentation" src="https://pkg.go.dev/badge/github.com/lrstanley/corpse?style=flat-square">
+  </a>
+  <a href="https://goreportcard.com/report/github.com/lrstanley/corpse">
+    <img title="Go Report Card" src="https://goreportcard.com/badge/github.com/lrstanley/corpse?style=flat-square">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/lrstanley/corpse/issues?q=is:open+is:issue+label:bug">
+    <img title="Bug reports" src="https://img.shields.io/github/issues/lrstanley/corpse/bug?label=issues&style=flat-square">
+  </a>
+  <a href="https://github.com/lrstanley/corpse/issues?q=is:open+is:issue+label:enhancement">
+    <img title="Feature requests" src="https://img.shields.io/github/issues/lrstanley/corpse/enhancement?label=feature%20requests&style=flat-square">
+  </a>
+  <a href="https://github.com/lrstanley/corpse/pulls">
+    <img title="Open Pull Requests" src="https://img.shields.io/github/issues-pr/lrstanley/corpse?label=prs&style=flat-square">
+  </a>
+  <a href="https://github.com/lrstanley/corpse/discussions/new?category=q-a">
+    <img title="Ask a Question" src="https://img.shields.io/badge/support-ask_a_question!-blue?style=flat-square">
+  </a>
+  <a href="https://liam.sh/chat"><img src="https://img.shields.io/badge/discord-bytecord-blue.svg?style=flat-square" title="Discord Chat"></a>
+</p>
 <!-- template:end:header -->
 
 <!-- template:begin:toc -->
 <!-- do not edit anything in this "template" block, its auto-generated -->
+## :link: Table of Contents
+
+  - [Features](#sparkles-features)
+  - [Usage](#gear-usage)
+  - [References](#books-references)
+  - [Support &amp; Assistance](#raising_hand_man-support--assistance)
+  - [Contributing](#handshake-contributing)
+  - [License](#balance_scale-license)
 <!-- template:end:toc -->
 
 ## :sparkles: Features
