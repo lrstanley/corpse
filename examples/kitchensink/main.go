@@ -6,15 +6,13 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"sort"
 	"strings"
 
-	"github.com/aaaton/golem/v4"
-	"github.com/aaaton/golem/v4/dicts/en"
 	"github.com/coder/hnsw"
-	"github.com/kljensen/snowball"
 	"github.com/lrstanley/corpse"
+	"github.com/lrstanley/corpse/lemm"
+	"github.com/lrstanley/corpse/stem"
 )
 
 var documents = map[string]string{
@@ -26,11 +24,6 @@ var documents = map[string]string{
 }
 
 func main() {
-	lemmatizer, err := golem.New(en.New())
-	if err != nil {
-		log.Fatalf("failed to create lemmatizer: %v", err)
-	}
-
 	// The vector size will heavily depend on the corpus size and the number of
 	// unique terms in the corpus. This example actually doesn't need more than 25,
 	// however, you'd likely set this higher. OpenAI uses 1536 for
@@ -49,9 +42,7 @@ func main() {
 			// predefined database of words and their simplified meaning.
 			//
 			// Example: "agreed" -> "agree", "first" -> "1", "alphabetically" -> "alphabet".
-			corpse.TermFilterFunc(func(term string) string {
-				return lemmatizer.Lemma(term)
-			}),
+			lemm.NewTermFilter(),
 
 			// Example of using a term filter to "stem" terms. This is a common
 			// approach to reduce the number of unique terms in the corpus. Note
@@ -61,13 +52,7 @@ func main() {
 			// as accurate.
 			//
 			// Example: "running" -> "run", "organization" -> "organiz".
-			corpse.TermFilterFunc(func(term string) string {
-				stemmed, err := snowball.Stem(term, "english", true)
-				if err != nil {
-					return term
-				}
-				return stemmed
-			}),
+			stem.NewTermFilter(),
 
 			// Example of using a term filter to remove stop words. Stop words are
 			// words that you know will likely appear in most documents, and you

@@ -9,9 +9,9 @@ import (
 	"slices"
 )
 
-// SortedSet is a set of ordered elements. It is not concurrent-safe by itself.
+// SortedSet is a set of ordered elements. Writes are not concurrent-safe.
 type SortedSet[T cmp.Ordered] struct {
-	set []T // TODO: use atomic.Pointer?
+	set []T
 }
 
 func (s *SortedSet[T]) Add(v T) {

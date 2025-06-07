@@ -5,10 +5,15 @@ license:
 
 fetch:
 	go mod tidy
+	cd ./examples/kitchensink && go mod tidy
+	cd ./lemm && go mod tidy
+	cd ./stem && go mod tidy
 
 up:
 	go get -u ./... && go get -u -t ./... && go mod tidy
 	cd ./examples/kitchensink && go get -u ./... && go get -u -t ./... && go mod tidy
+	cd ./lemm && go get -u ./... && go get -u -t ./... && go mod tidy
+	cd ./stem && go get -u ./... && go get -u -t ./... && go mod tidy
 
 prepare: fetch
 	go generate -x ./...

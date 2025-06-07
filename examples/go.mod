@@ -2,23 +2,23 @@ module github.com/lrstanley/corpse/examples
 
 go 1.24.4
 
-replace github.com/lrstanley/corpse => ../
-
 require (
-	github.com/aaaton/golem/v4 v4.0.2
-	github.com/aaaton/golem/v4/dicts/en v1.0.1
 	github.com/coder/hnsw v0.6.1
 	github.com/gkampitakis/go-snaps v0.5.13
-	github.com/kljensen/snowball v0.10.0
-	github.com/lrstanley/corpse v0.0.0-00010101000000-000000000000
+	github.com/lrstanley/corpse v0.0.0-20250607012001-f310e29fb8a3
+	github.com/lrstanley/corpse/lemm v0.0.0-00010101000000-000000000000
+	github.com/lrstanley/corpse/stem v0.0.0-00010101000000-000000000000
 )
 
 require (
+	github.com/aaaton/golem/v4 v4.0.2 // indirect
+	github.com/aaaton/golem/v4/dicts/en v1.0.1 // indirect
 	github.com/chewxy/math32 v1.11.1 // indirect
 	github.com/gkampitakis/ciinfo v0.3.2 // indirect
 	github.com/gkampitakis/go-diff v1.3.2 // indirect
 	github.com/goccy/go-yaml v1.18.0 // indirect
 	github.com/google/renameio v1.0.1 // indirect
+	github.com/kljensen/snowball v0.10.0 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/maruel/natural v1.1.1 // indirect
