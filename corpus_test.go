@@ -90,3 +90,97 @@ func BenchmarkCorpus(b *testing.B) {
 		corp.CreateVector(query)
 	}
 }
+
+func TestIsNoMatchVector(t *testing.T) {
+	corp := New()
+	for _, s := range sampleData {
+		corp.IndexDocument(s.text)
+	}
+
+	tests := []struct {
+		name     string
+		text     string
+		expected bool
+	}{
+		{
+			name:     "non-existent terms",
+			text:     "xyzabc123",
+			expected: true,
+		},
+		{
+			name:     "single term match",
+			text:     "lorem",
+			expected: false,
+		},
+		{
+			name:     "multiple term match",
+			text:     "lorem ipsum dolor",
+			expected: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			vector := corp.CreateVector(tt.text)
+			result := IsNoMatchVector(vector)
+			if result != tt.expected {
+				t.Errorf("IsNoMatchVector(%v) = %v, want %v", vector, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestIsLowMatchVector(t *testing.T) {
+	corp := New()
+	for _, s := range sampleData {
+		corp.IndexDocument(s.text)
+	}
+
+	tests := []struct {
+		name              string
+		text              string
+		lessThanDocuments int
+		expected          bool
+	}{
+		{
+			name:              "non-existent terms",
+			text:              "xyzabc123",
+			lessThanDocuments: 1,
+			expected:          true,
+		},
+		{
+			name:              "single term match below threshold",
+			text:              "lorem",
+			lessThanDocuments: 2,
+			expected:          true,
+		},
+		{
+			name:              "single term match at threshold",
+			text:              "lorem",
+			lessThanDocuments: 1,
+			expected:          false,
+		},
+		{
+			name:              "multiple term match below threshold",
+			text:              "lorem ipsum dolor",
+			lessThanDocuments: 4,
+			expected:          true,
+		},
+		{
+			name:              "multiple term match at threshold",
+			text:              "lorem ipsum dolor",
+			lessThanDocuments: 3,
+			expected:          false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			vector := corp.CreateVector(tt.text)
+			result := IsLowMatchVector(vector, tt.lessThanDocuments)
+			if result != tt.expected {
+				t.Errorf("IsLowMatchVector(%v, %d) = %v, want %v", vector, tt.lessThanDocuments, result, tt.expected)
+			}
+		})
+	}
+}

@@ -225,3 +225,25 @@ func (c *Corpus) tokenize(text string) iter.Seq[string] {
 	}
 	return seq
 }
+
+// IsNoMatchVector returns true if the vector didn't match any terms.
+func IsNoMatchVector(vector []float32) bool {
+	for _, val := range vector {
+		if val != 0.0 {
+			return false
+		}
+	}
+	return true
+}
+
+// IsLowMatchVector returns true if the vector is a low-match vector. This is useful
+// for signaling that there might be very few results, when searching user queries.
+func IsLowMatchVector(vector []float32, lessThanDocuments int) bool {
+	var count int
+	for _, val := range vector {
+		if val != 0.0 {
+			count++
+		}
+	}
+	return count < lessThanDocuments
+}
