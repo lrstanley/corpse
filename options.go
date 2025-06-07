@@ -96,6 +96,32 @@ func StopTermFilter(words []string) TermFilter {
 	}
 }
 
+// WithMinLenTermFilter removes terms that are shorter than the given length.
+func WithMinLenTermFilter(minLen int) TermFilter {
+	return func(seq iter.Seq[string]) iter.Seq[string] {
+		return func(yield func(string) bool) {
+			for term := range seq {
+				if len(term) >= minLen && !yield(term) {
+					return
+				}
+			}
+		}
+	}
+}
+
+// WithMaxLenTermFilter removes terms that are longer than the given length.
+func WithMaxLenTermFilter(maxLen int) TermFilter {
+	return func(seq iter.Seq[string]) iter.Seq[string] {
+		return func(yield func(string) bool) {
+			for term := range seq {
+				if len(term) <= maxLen && !yield(term) {
+					return
+				}
+			}
+		}
+	}
+}
+
 type PruneHook func(documents int, termFreq map[string]int) (toRemove []string)
 
 // WithPruneHooks allows adding hooks, which are ran before vectorization, that remove
