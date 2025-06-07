@@ -153,7 +153,8 @@ func main() {
     results := graph.Search(corp.CreateVector(query), 2)
 
     for _, result := range results {
-        fmt.Printf("content[%s]: %s\n", result.Key, documents[result.Key])
+        fmt.Printf("content[%s]: %s
+", result.Key, documents[result.Key])
     }
 }
 ```
