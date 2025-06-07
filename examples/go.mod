@@ -6,8 +6,8 @@ require (
 	github.com/coder/hnsw v0.6.1
 	github.com/gkampitakis/go-snaps v0.5.13
 	github.com/lrstanley/corpse v0.0.0-20250607012001-f310e29fb8a3
-	github.com/lrstanley/corpse/lemm v0.0.0-00010101000000-000000000000
-	github.com/lrstanley/corpse/stem v0.0.0-00010101000000-000000000000
+	github.com/lrstanley/corpse/lemm v0.0.0-20250607062036-693cedd3c01b
+	github.com/lrstanley/corpse/stem v0.0.0-20250607062036-693cedd3c01b
 )
 
 require (

@@ -11,6 +11,7 @@ dist
 *.db
 *.sqlite
 *.sqlite3
+go.work*
 **/.env
 **/bin/**
 *.out
