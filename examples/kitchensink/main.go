@@ -88,7 +88,7 @@ func main() {
 
 	// If you want to see what terms make up the corpus, you can use this:
 	var terms []string
-	for term, freq := range corp.TermFrequencySnapshot() {
+	for term, freq := range corp.GetTermFrequency() {
 		terms = append(terms, fmt.Sprintf("%s(%d)", term, freq))
 	}
 	sort.Strings(terms)

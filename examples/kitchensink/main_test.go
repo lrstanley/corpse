@@ -30,7 +30,7 @@ func TestCorpus(t *testing.T) {
 	for _, doc := range documents {
 		corp.IndexDocument(doc)
 	}
-	snaps.MatchSnapshot(t, corp.TermFrequencySnapshot())
+	snaps.MatchSnapshot(t, corp.GetTermFrequency())
 
 	sortedKeys := slices.Collect(maps.Keys(documents))
 	sort.Strings(sortedKeys)

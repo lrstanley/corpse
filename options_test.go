@@ -158,13 +158,13 @@ func TestPrune(t *testing.T) {
 				corp.IndexDocument(doc)
 			}
 
-			beforeTotalTerms := len(corp.TermFrequencySnapshot())
+			beforeTotalTerms := len(corp.GetTermFrequency())
 			if beforeTotalTerms < 1 {
 				t.Errorf("expected at least 1 term, got %d", beforeTotalTerms)
 			}
 
 			corp.Prune()
-			after := corp.TermFrequencySnapshot()
+			after := corp.GetTermFrequency()
 
 			for _, term := range tt.pruned {
 				if _, ok := after[term]; ok {

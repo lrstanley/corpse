@@ -134,12 +134,12 @@ func (c *Corpus) IndexDocument(text string) {
 	c.hasPruned = false
 }
 
-// TermFrequencySnapshot returns a snapshot of the term frequencies. Note that
+// GetTermFrequency returns a snapshot of the term frequencies. Note that
 // because [CreateVector] calls [Corpus.Prune] before creating vectors, if you
 // invoke this before [CreateVector], you will receive terms that might not have
 // been pruned yet by [PruneHook]s. Call [Corpus.Prune] manually before this
 // function first in that case.
-func (c *Corpus) TermFrequencySnapshot() map[string]int {
+func (c *Corpus) GetTermFrequency() map[string]int {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
 	return maps.Clone(c.termFreq)
