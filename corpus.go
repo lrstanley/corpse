@@ -243,11 +243,8 @@ func IsNoMatchVector(vector []float32) bool {
 	return true
 }
 
-// RecommendedSearchLimit returns a rough estimate of the number of terms that should
-// be used for searching. This is useful for limiting the number of results returned
-// by a search query. Would generally recommend binding the output between a min and
-// max value.
-func RecommendedSearchLimit(vector []float32) (count int) {
+// VectorSubCount returns the number of non-zero values in the vector.
+func VectorSubCount(vector []float32) (count int) {
 	for _, val := range vector {
 		if val != 0.0 {
 			count++
