@@ -145,6 +145,13 @@ func (c *Corpus) GetTermFrequency() map[string]int {
 	return maps.Clone(c.termFreq)
 }
 
+// GetDocumentCount returns the number of documents that have been indexed.
+func (c *Corpus) GetDocumentCount() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return c.documents
+}
+
 // CreateVector creates a TF-IDF vector for the given text. Note that for documents,
 // before generating a vector and adding it to a graph, ALL documents must be indexed
 // first. Note that the returned vector will not be padded. See [CreatePaddedVector]
