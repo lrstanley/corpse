@@ -134,7 +134,8 @@ func WithPruneHooks(hooks ...PruneHook) Option {
 }
 
 // PruneLessThan is a [PruneHook] that removes terms that appear in less than the
-// given number of documents.
+// given number of documents. Keep in mind that if you happen to have very few
+// documents, this may remove all terms.
 func PruneLessThan(count int) PruneHook {
 	return func(_ int, termFreq map[string]int) (toRemove []string) {
 		for term, freq := range termFreq {
@@ -147,7 +148,8 @@ func PruneLessThan(count int) PruneHook {
 }
 
 // PruneLessThanPercent is a [PruneHook] that removes terms that appear in less than
-// the given percentage of documents.
+// the given percentage of documents. Keep in mind that if you happen to have very few
+// documents, this may remove all terms.
 func PruneLessThanPercent(percent int) PruneHook {
 	return func(documents int, termFreq map[string]int) (toRemove []string) {
 		for term, freq := range termFreq {
@@ -160,7 +162,8 @@ func PruneLessThanPercent(percent int) PruneHook {
 }
 
 // PruneMoreThan is a [PruneHook] that removes terms that appear in more than the
-// given number of documents.
+// given number of documents. Keep in mind that if you happen to have very few
+// documents, this may remove all terms.
 func PruneMoreThan(count int) PruneHook {
 	return func(_ int, termFreq map[string]int) (toRemove []string) {
 		for term, freq := range termFreq {
@@ -173,7 +176,8 @@ func PruneMoreThan(count int) PruneHook {
 }
 
 // PruneMoreThanPercent is a [PruneHook] that removes terms that appear in more than
-// the given percentage of documents.
+// the given percentage of documents. Keep in mind that if you happen to have very few
+// documents, this may remove all terms.
 func PruneMoreThanPercent(percent int) PruneHook {
 	return func(documents int, termFreq map[string]int) (toRemove []string) {
 		for term, freq := range termFreq {
