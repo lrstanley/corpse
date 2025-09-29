@@ -1,3 +1,9 @@
+> [!CAUTION]
+> This module has moved to [github.com/lrstanley/x/text/corpse](https://github.com/lrstanley/x/tree/master/text/corpse) and
+> is being maintained there, given it's not really production ready and is only an experiment.
+
+---
+
 <!-- template:define:options
 {
   "nodescription": true
